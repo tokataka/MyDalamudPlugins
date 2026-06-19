@@ -1,0 +1,41 @@
+name: Update pluginmaster
+
+on:
+  repository_dispatch:
+    types:
+      - plugin-release
+      - plugin-download-count
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    name: Update plugin metadata
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Update pluginmaster
+        run: node scripts/update-pluginmaster.mjs
+
+      - name: Commit changes
+        shell: pwsh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add pluginmaster.json
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "No plugin metadata changes."
+            exit 0
+          }
+
+          $event = Get-Content -Raw -LiteralPath $env:GITHUB_EVENT_PATH | ConvertFrom-Json
+          $type = if ($event.action) { $event.action } else { "manual" }
+          git commit -m "Update plugin metadata ($type)"
+          git push
