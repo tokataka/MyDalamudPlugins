@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "Author": "tok",
+    "Name": "Controller Deadzone",
+    "Punchline": "Adjust gamepad stick deadzones in-game.",
+    "Description": "Adds radial and axial stick input remapping with dead zone, max zone, anti-dead zone, and a compact live configuration UI.",
+    "InternalName": "ControllerDeadzone",
+    "AssemblyVersion": "0.1.0.0",
+    "RepoUrl": "https://github.com/tokataka/dalamud-controller-deadzone-plugin",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "DownloadCount": 0,
+    "LastUpdate": 1781843673,
+    "DownloadLinkInstall": "https://github.com/tokataka/dalamud-controller-deadzone-plugin/releases/download/v0.1.0.0/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/tokataka/dalamud-controller-deadzone-plugin/releases/download/v0.1.0.0/latest.zip",
+    "IconUrl": "https://raw.githubusercontent.com/tokataka/dalamud-controller-deadzone-plugin/fdb1fd5140d79d92fca61c8b703a7e5ca8210432/images/icon.png",
+    "Changelog": "- Initial release.",
+    "Tags": [
+      "controller",
+      "gamepad",
+      "deadzone"
+    ]
+  }
+]
